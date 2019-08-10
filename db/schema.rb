@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_08_10_075019) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "account_type"
-    t.bigint "account_number"
+    t.bigint "account_number", null: false
     t.decimal "balance", precision: 6, scale: 2, default: "0.0"
     t.bigint "user_id", null: false
     t.bigint "created_by_id", null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_08_10_075019) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string "transaction_id", limit: 8
+    t.bigint "transaction_id", null: false
     t.string "mode"
     t.decimal "amount", precision: 6, scale: 2
     t.bigint "sender_account_id"

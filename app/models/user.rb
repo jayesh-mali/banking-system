@@ -9,7 +9,10 @@ class User < ActiveRecord::Base
 
   has_many :accounts, dependent: :destroy
 
+  has_many :addresses, dependent: :destroy
+
   validates :pan_number, presence: true
+  validates :pan_number, uniqueness: true
 
   after_create :create_account
 

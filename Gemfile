@@ -49,3 +49,5 @@ gem 'devise_token_auth', '~> 1.0.0'
 gem 'active_model_serializers', '~> 0.10.6'
 
 gem "paranoia", "~> 2.2"
+
+gem "pundit"

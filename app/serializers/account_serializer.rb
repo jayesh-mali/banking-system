@@ -1,3 +1,3 @@
 class AccountSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :account_number, :balance
 end
