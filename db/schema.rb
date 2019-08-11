@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_08_10_075019) do
     t.string "mode"
     t.decimal "amount", precision: 6, scale: 2
     t.bigint "sender_account_id"
-    t.bigint "recipient_account_id", null: false
+    t.bigint "recipient_account_id"
     t.bigint "created_by_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

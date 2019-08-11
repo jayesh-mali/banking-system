@@ -5,20 +5,99 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+- Ruby version: 2.5.3
 
-* System dependencies
+- Run following commands to setup database:
 
-* Configuration
+    - rake db:create
 
-* Database creation
+    - rake db:migrate
 
-* Database initialization
+- Need to add master.key file in config folder
 
-* How to run the test suite
+APIs:
+## Signup  
+- **Type:** POST
 
-* Services (job queues, cache servers, search engines, etc.)
+- **URL:** /auth
 
-* Deployment instructions
+- **Sample Body:**
+```json
+{
+  "email": "test@gmail.com",
+  "name":"test",
+  "pan_number":"CMPLP66928",
+  "password": "12345678",
+  "password_confirmation": "12345678"
+}
+```
+- **Description**: This service will create a user account as well as a bank account.
 
-* ...
+****
+
+## Login  
+- **Type:** POST
+
+- **URL:** /auth/sign_in
+
+- **Sample Body:**  
+    
+```json
+{
+  "email": "test@gmail.com",
+  "password": "12345678",
+}
+```
+- **Response Header:**  
+These keys need to be passed in every request header
+```json
+access-token :9Z67F68KoXI2pxWyaRdreQ
+token-type :Bearer
+client :NMVitL6tQiO5N3gaq0esBA
+expiry :1566656076
+uid :test@gmail.com
+```
+****
+
+## List all accounts of logged in user
+- **Type:** GET
+
+- **URL:** /accounts
+
+****
+
+## Show account details
+- **Type:** GET
+
+- **URL:** /accounts/:id
+
+****
+
+## List all transactions of an account
+- **Type:** GET
+
+- **URL:** /accounts/:id/list_transactions
+
+****
+
+## Create Transaction
+- **Type:** POST
+
+- **URL:** /transactions
+
+- **Sample Body:**  
+    
+```json
+{
+	"mode":"online",
+	"amount":1000,
+	"sender_account_number":100000000000,
+	"recipient_account_number":100000000001
+}
+```
+****
+
+## Account summary
+- **Type:** GET
+
+- **URL:** /accounts/:id/status
